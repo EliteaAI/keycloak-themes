@@ -1,0 +1,66 @@
+:root {
+  --keycloak-login-button-color: #6AE8FA;
+  --login-button-hover: #83EFFF;
+  --login-button-presses: #2ABDD2;
+  --login-form-background-color: #181F2A;
+  --login-body-text-color: #E0E0E0;
+}
+
+.login-pf body {
+  background: url(../img/keycloak-bg.png) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  color: var(--login-body-text-color)!important;
+}
+
+#kc-header-wrapper {
+  text-indent: -9999px;
+  background-image: url(../img/keycloak-logo-text.png);
+  background-repeat: no-repeat;
+  height: 130px;
+  width: 470px;
+  margin: 0 auto;
+}
+
+#kc-login {
+  background-color: var(--keycloak-login-button-color);
+  color: #0E131D;
+}
+
+#kc-login:hover {
+  background-color: var(--login-button-hover);
+}
+
+#kc-login:active {
+  background-color: var(--login-button-presses);
+}
+
+.pf-v5-c-login__main {
+  background: var(--login-form-background-color)!important;
+  border-radius: 8px!important;
+}
+
+span.icon-epam > svg {
+  display: none;
+}
+
+span.icon-epam:before {
+  width: 100%;
+  color: var(--login-body-text-color)!important;
+  font-size: xx-large;
+}
+
+span.icon-forefront > svg {
+  display: none;
+}
+
+span.icon-forefront {
+  display: block;
+  background-image: url(../img/idp-forefront-logo.png);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 150px;
+  height: 40px;
+  width: 150px;
+  margin-top: -4px;
+}
