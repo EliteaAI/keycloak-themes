@@ -1,55 +1,248 @@
+/* ============================================
+   ELITEA KEYCLOAK THEME - Dark Mode
+   Updated: August 2026
+
+   This file overrides the keycloak.v2 parent theme
+   to match the new Elitea design system.
+   ============================================ */
+
 :root {
+  /* Primary Button Colors */
   --keycloak-login-button-color: #6AE8FA;
   --login-button-hover: #83EFFF;
   --login-button-presses: #2ABDD2;
+
+  /* Card & Backgrounds */
   --login-form-background-color: #181F2A;
-  --login-body-text-color: #E0E0E0;
+  --login-form-border-color: #3B3E46;
+  --login-page-background: #0D1923;
+
+  /* Text Colors */
+  --login-body-text-color: #FFFFFF;
+  --login-text-secondary: #A9B7C1;
+  --login-button-text-color: #0E131D;
+
+  /* Input Fields */
+  --input-border-color: #3B3E46;
+  --input-placeholder-color: #A9B7C1;
+
+  /* Social Buttons */
+  --social-button-border-color: #686C76;
+  --social-button-hover-border: #FFFFFF;
+
+  /* Divider */
+  --divider-color: #3B3E46;
+  --divider-text-color: #A9B7C1;
 }
 
+/* ===== PAGE BACKGROUND ===== */
 .login-pf body {
-  background: url(../img/keycloak-bg.png) no-repeat center center fixed;
+  background: var(--login-page-background) url(../img/keycloak-bg.png) no-repeat center center fixed;
   background-size: cover;
   height: 100%;
-  color: var(--login-body-text-color)!important;
+  color: var(--login-body-text-color) !important;
 }
 
+/* ===== HEADER LOGO ===== */
 #kc-header-wrapper {
   text-indent: -9999px;
   background-image: url(../img/keycloak-logo-text.png);
   background-repeat: no-repeat;
-  height: 130px;
-  width: 470px;
-  margin: 0 auto;
+  background-position: center;
+  background-size: contain;
+  height: 60px;
+  width: 300px;
+  margin: 0 auto 32px auto;
 }
 
+/* ===== LOGIN CARD ===== */
+.pf-v5-c-login__main {
+  background: var(--login-form-background-color) !important;
+  border: 1px solid var(--login-form-border-color) !important;
+  border-radius: 16px !important;
+  padding: 32px 40px !important;
+}
+
+/* Card title */
+.pf-v5-c-login__main-header .pf-v5-c-title {
+  color: var(--login-body-text-color) !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
+
+/* ===== INPUT FIELDS (Underline Style) ===== */
+.pf-v5-c-form-control {
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid var(--input-border-color) !important;
+  border-radius: 0 !important;
+  color: var(--login-body-text-color) !important;
+  padding: 8px 12px !important;
+  height: 44px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 24px !important;
+}
+
+.pf-v5-c-form-control:focus {
+  border-bottom-color: var(--keycloak-login-button-color) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.pf-v5-c-form-control::placeholder {
+  color: var(--input-placeholder-color) !important;
+}
+
+/* Input labels */
+.pf-v5-c-form__label-text {
+  color: var(--login-text-secondary) !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
+/* Password visibility toggle */
+.pf-v5-c-button.pf-m-control {
+  background: transparent !important;
+  border: none !important;
+  color: var(--login-text-secondary) !important;
+}
+
+.pf-v5-c-button.pf-m-control:hover {
+  color: var(--login-body-text-color) !important;
+}
+
+/* ===== SIGN IN BUTTON ===== */
 #kc-login {
-  background-color: var(--keycloak-login-button-color);
-  color: #0E131D;
+  background-color: var(--keycloak-login-button-color) !important;
+  color: var(--login-button-text-color) !important;
+  border: none !important;
+  border-radius: 27px !important;
+  padding: 8px 10px !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  line-height: 16px !important;
+  width: 100% !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
 }
 
 #kc-login:hover {
-  background-color: var(--login-button-hover);
+  background-color: var(--login-button-hover) !important;
 }
 
 #kc-login:active {
-  background-color: var(--login-button-presses);
+  background-color: var(--login-button-presses) !important;
 }
 
-.pf-v5-c-login__main {
-  background: var(--login-form-background-color)!important;
-  border-radius: 8px!important;
+/* ===== SOCIAL LOGIN DIVIDER ===== */
+.pf-v5-c-login__main-footer-band {
+  border-top: none !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  padding: 0 !important;
+  margin: 32px 0 !important;
 }
 
+.pf-v5-c-login__main-footer-band::before,
+.pf-v5-c-login__main-footer-band::after {
+  content: '' !important;
+  flex: 1 !important;
+  height: 1px !important;
+  background: var(--divider-color) !important;
+}
+
+.pf-v5-c-login__main-footer-band-item {
+  color: var(--divider-text-color) !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  line-height: 16px !important;
+  white-space: nowrap !important;
+}
+
+/* ===== SOCIAL LOGIN BUTTONS ===== */
+#kc-social-providers {
+  margin-top: 0 !important;
+}
+
+.pf-v5-c-login__main-footer-links {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  justify-content: center !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.pf-v5-c-login__main-footer-links-item {
+  flex: 1 1 calc(50% - 6px) !important;
+  min-width: 150px !important;
+  max-width: calc(50% - 6px) !important;
+}
+
+.pf-v5-c-login__main-footer-links-item .pf-v5-c-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  height: 32px !important;
+  padding: 8px 10px !important;
+  background-color: transparent !important;
+  border: 1px solid var(--social-button-border-color) !important;
+  border-radius: 16px !important;
+  color: var(--login-body-text-color) !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  line-height: 16px !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.pf-v5-c-login__main-footer-links-item .pf-v5-c-button:hover {
+  border-color: var(--social-button-hover-border) !important;
+  background-color: transparent !important;
+}
+
+/* Social button icons container */
+.pf-v5-c-login__main-footer-links-item .pf-v5-c-button span[class^="icon-"],
+.pf-v5-c-login__main-footer-links-item .pf-v5-c-button span[class*=" icon-"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* ===== EPAM ICON (Image) ===== */
 span.icon-epam > svg {
   display: none;
 }
 
-span.icon-epam:before {
-  width: 100%;
-  color: var(--login-body-text-color)!important;
-  font-size: xx-large;
+span.icon-epam {
+  display: block;
+  background-image: url(../img/epam-logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 15px;
+  width: 36px;
 }
 
+span.icon-epam:before {
+  display: none !important;
+}
+
+/* ===== FOREFRONT ICON ===== */
 span.icon-forefront > svg {
   display: none;
 }
@@ -58,9 +251,77 @@ span.icon-forefront {
   display: block;
   background-image: url(../img/idp-forefront-logo.png);
   background-repeat: no-repeat;
-  background-position: top left;
-  background-size: 150px;
-  height: 40px;
-  width: 150px;
-  margin-top: -4px;
+  background-position: center;
+  background-size: contain;
+  height: 18px;
+  width: 16px;
+}
+
+/* ===== ERROR/ALERT MESSAGES ===== */
+.pf-v5-c-alert {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  margin-bottom: 16px !important;
+}
+
+.pf-v5-c-alert__title {
+  color: var(--login-body-text-color) !important;
+}
+
+/* ===== LINKS ===== */
+.pf-v5-c-login__main a,
+.pf-v5-c-login__main-footer a {
+  color: var(--keycloak-login-button-color) !important;
+  text-decoration: none !important;
+}
+
+.pf-v5-c-login__main a:hover,
+.pf-v5-c-login__main-footer a:hover {
+  color: var(--login-button-hover) !important;
+  text-decoration: underline !important;
+}
+
+/* ===== CHECKBOX (Remember Me) ===== */
+.pf-v5-c-check__label {
+  color: var(--login-text-secondary) !important;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 12px !important;
+}
+
+.pf-v5-c-check__input {
+  border-color: var(--input-border-color) !important;
+}
+
+.pf-v5-c-check__input:checked {
+  background-color: var(--keycloak-login-button-color) !important;
+  border-color: var(--keycloak-login-button-color) !important;
+}
+
+/* ===== HELPER TEXT ===== */
+.pf-v5-c-helper-text__item-text {
+  color: var(--login-text-secondary) !important;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 576px) {
+  .pf-v5-c-login__main {
+    padding: 24px 20px !important;
+    margin: 0 16px !important;
+    border-radius: 12px !important;
+  }
+
+  #kc-header-wrapper {
+    width: 200px !important;
+    height: 40px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .pf-v5-c-login__main-footer-links-item {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+  }
+
+  .pf-v5-c-login__main-footer-band {
+    margin: 24px 0 !important;
+  }
 }
