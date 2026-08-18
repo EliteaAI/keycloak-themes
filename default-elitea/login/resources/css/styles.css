@@ -25,6 +25,7 @@
   /* Input Fields */
   --input-border-color: #3B3E46;
   --input-placeholder-color: #A9B7C1;
+  --input-background-color: #262D3D;
 
   /* Social Buttons */
   --social-button-border-color: #686C76;
@@ -72,28 +73,47 @@
   line-height: 24px !important;
 }
 
-/* ===== INPUT FIELDS (Underline Style) ===== */
+/* ===== INPUT FIELDS ===== */
+/* Input container - the span that wraps the input */
 .pf-v5-c-form-control {
-  background-color: transparent !important;
+  background-color: var(--input-background-color) !important;
   border: none !important;
   border-bottom: 1px solid var(--input-border-color) !important;
-  border-radius: 0 !important;
+  border-radius: 4px 4px 0 0 !important;
   color: var(--login-body-text-color) !important;
-  padding: 8px 12px !important;
-  height: 44px !important;
+  padding: 0 !important;
+  height: auto !important;
+}
+
+/* The actual input element */
+.pf-v5-c-form-control > input,
+.pf-v5-c-form-control > input[type="text"],
+.pf-v5-c-form-control > input[type="password"] {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--login-body-text-color) !important;
+  padding: 12px 16px !important;
+  height: 48px !important;
+  width: 100% !important;
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 500 !important;
   font-size: 14px !important;
   line-height: 24px !important;
+  box-sizing: border-box !important;
 }
 
-.pf-v5-c-form-control:focus {
+.pf-v5-c-form-control:focus-within {
   border-bottom-color: var(--keycloak-login-button-color) !important;
   box-shadow: none !important;
   outline: none !important;
 }
 
-.pf-v5-c-form-control::placeholder {
+.pf-v5-c-form-control > input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.pf-v5-c-form-control > input::placeholder {
   color: var(--input-placeholder-color) !important;
 }
 
@@ -105,15 +125,10 @@
   font-size: 14px !important;
 }
 
-/* Password visibility toggle */
-.pf-v5-c-button.pf-m-control {
-  background: transparent !important;
-  border: none !important;
-  color: var(--login-text-secondary) !important;
-}
-
-.pf-v5-c-button.pf-m-control:hover {
-  color: var(--login-body-text-color) !important;
+/* Hide password visibility toggle completely */
+.pf-v5-c-button.pf-m-control,
+.pf-v5-c-form-control > button {
+  display: none !important;
 }
 
 /* ===== SIGN IN BUTTON ===== */
@@ -189,38 +204,47 @@
   max-width: calc(50% - 6px) !important;
 }
 
-.pf-v5-c-login__main-footer-links-item .pf-v5-c-button {
+/* Social login button links */
+.pf-v5-c-login__main-footer-links-item a,
+.pf-v5-c-login__main-footer-links-item .pf-v5-c-button,
+#kc-social-providers a {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   gap: 8px !important;
   width: 100% !important;
-  height: 32px !important;
-  padding: 8px 10px !important;
+  height: 40px !important;
+  padding: 8px 16px !important;
   background-color: transparent !important;
   border: 1px solid var(--social-button-border-color) !important;
-  border-radius: 16px !important;
+  border-radius: 20px !important;
   color: var(--login-body-text-color) !important;
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 500 !important;
-  font-size: 12px !important;
+  font-size: 14px !important;
   line-height: 16px !important;
   text-decoration: none !important;
   cursor: pointer !important;
   transition: border-color 0.2s ease !important;
 }
 
-.pf-v5-c-login__main-footer-links-item .pf-v5-c-button:hover {
+.pf-v5-c-login__main-footer-links-item a:hover,
+.pf-v5-c-login__main-footer-links-item .pf-v5-c-button:hover,
+#kc-social-providers a:hover {
   border-color: var(--social-button-hover-border) !important;
   background-color: transparent !important;
+  text-decoration: none !important;
 }
 
 /* Social button icons container */
 .pf-v5-c-login__main-footer-links-item .pf-v5-c-button span[class^="icon-"],
-.pf-v5-c-login__main-footer-links-item .pf-v5-c-button span[class*=" icon-"] {
+.pf-v5-c-login__main-footer-links-item .pf-v5-c-button span[class*=" icon-"],
+.pf-v5-c-login__main-footer-links-item a span[class^="icon-"],
+.pf-v5-c-login__main-footer-links-item a span[class*=" icon-"] {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  flex-shrink: 0 !important;
 }
 
 /* ===== EPAM ICON (Image) ===== */
