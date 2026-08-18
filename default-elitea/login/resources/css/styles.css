@@ -8,43 +8,50 @@
 
 :root {
   /* Primary Button Colors */
-  --keycloak-login-button-color: #6AE8FA;
-  --login-button-hover: #83EFFF;
-  --login-button-presses: #2ABDD2;
+  --keycloak-login-button-color: #6ae8fa;
+  --login-button-hover: #83efff;
+  --login-button-presses: #2abdd2;
 
   /* Card & Backgrounds */
-  --login-form-background-color: #181F2A;
-  --login-form-border-color: #3B3E46;
-  --login-page-background: #0D1923;
+  --login-form-background-color: #181f2a;
+  --login-form-border-color: #3b3e46;
+  --login-page-background: #0d1923;
 
   /* Text Colors */
-  --login-body-text-color: #FFFFFF;
-  --login-text-secondary: #A9B7C1;
-  --login-button-text-color: #0E131D;
+  --login-body-text-color: #ffffff;
+  --login-text-secondary: #a9b7c1;
+  --login-button-text-color: #0e131d;
 
   /* Input Fields */
-  --input-border-color: #3B3E46;
-  --input-placeholder-color: #A9B7C1;
-  --input-background-color: #262D3D;
+  --input-border-color: #3b3e46;
+  --input-placeholder-color: #a9b7c1;
+  --input-background-color: #262d3d;
 
   /* Social Buttons */
-  --social-button-border-color: #686C76;
-  --social-button-hover-border: #FFFFFF;
+  --social-button-border-color: #686c76;
+  --social-button-hover-border: #ffffff;
 
   /* Divider */
-  --divider-color: #3B3E46;
-  --divider-text-color: #A9B7C1;
+  --divider-color: #3b3e46;
+  --divider-text-color: #a9b7c1;
 }
 
 /* ===== PAGE BACKGROUND ===== */
 .login-pf body {
-  background: var(--login-page-background) url(../img/keycloak-bg.png) no-repeat center center fixed;
+  background: var(--login-page-background) url(../img/keycloak-bg.png) no-repeat
+    center center fixed;
   background-size: cover;
   height: 100%;
   color: var(--login-body-text-color) !important;
 }
 
 /* ===== HEADER LOGO ===== */
+.pf-v5-c-login__header,
+#kc-header {
+  margin-top: 0 !important;
+  margin-block-start: 0 !important;
+}
+
 #kc-header-wrapper {
   text-indent: -9999px;
   background-image: url(../img/keycloak-logo-text.png);
@@ -64,22 +71,61 @@
   padding: 32px 40px !important;
 }
 
+/* Remove padding from main body */
+.pf-v5-c-login__main-body {
+  padding: 0 !important;
+}
+
+/* Remove padding from main header */
+.pf-v5-c-login__main-header {
+  padding: 0 !important;
+  margin-bottom: 32px !important;
+}
+
 /* Card title */
 .pf-v5-c-login__main-header .pf-v5-c-title {
   color: var(--login-body-text-color) !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   font-weight: 600 !important;
   font-size: 16px !important;
   line-height: 24px !important;
 }
 
 /* ===== INPUT FIELDS ===== */
-/* Input container - the span that wraps the input */
+/* Remove extra form padding/gap */
+.pf-v5-c-form {
+  --pf-v5-c-form--GridGap: 0 !important;
+  gap: 0 !important;
+}
+
+/* Form group spacing - 12px between inputs */
+.pf-v5-c-form__group {
+  margin-bottom: 12px !important;
+}
+
+/* Last form group (password) - no bottom margin */
+.pf-v5-c-form__group:last-of-type {
+  margin-bottom: 0 !important;
+}
+
+/* Input labels - white color, 4px margin bottom */
+.pf-v5-c-form__label {
+  margin-bottom: 8px !important;
+}
+
+.pf-v5-c-form__label-text {
+  color: #ffffff !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
+/* Input container */
 .pf-v5-c-form-control {
-  background-color: var(--input-background-color) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
   border: none !important;
-  border-bottom: 1px solid var(--input-border-color) !important;
-  border-radius: 4px 4px 0 0 !important;
+  border-bottom: 1px solid rgba(104, 108, 118, 1) !important;
+  border-radius: 0 !important;
   color: var(--login-body-text-color) !important;
   padding: 0 !important;
   height: auto !important;
@@ -95,7 +141,7 @@
   padding: 12px 16px !important;
   height: 48px !important;
   width: 100% !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   font-weight: 500 !important;
   font-size: 14px !important;
   line-height: 24px !important;
@@ -117,14 +163,6 @@
   color: var(--input-placeholder-color) !important;
 }
 
-/* Input labels */
-.pf-v5-c-form__label-text {
-  color: var(--login-text-secondary) !important;
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 500 !important;
-  font-size: 14px !important;
-}
-
 /* Hide password visibility toggle completely */
 .pf-v5-c-button.pf-m-control,
 .pf-v5-c-form-control > button {
@@ -133,12 +171,13 @@
 
 /* ===== SIGN IN BUTTON ===== */
 #kc-login {
+  margin-top: 20px !important;
   background-color: var(--keycloak-login-button-color) !important;
   color: var(--login-button-text-color) !important;
   border: none !important;
   border-radius: 27px !important;
   padding: 8px 10px !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   font-weight: 500 !important;
   font-size: 12px !important;
   line-height: 16px !important;
@@ -168,7 +207,7 @@
 
 .pf-v5-c-login__main-footer-band::before,
 .pf-v5-c-login__main-footer-band::after {
-  content: '' !important;
+  content: "" !important;
   flex: 1 !important;
   height: 1px !important;
   background: var(--divider-color) !important;
@@ -176,7 +215,7 @@
 
 .pf-v5-c-login__main-footer-band-item {
   color: var(--divider-text-color) !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   font-weight: 500 !important;
   font-size: 12px !important;
   line-height: 16px !important;
@@ -219,13 +258,23 @@
   border: 1px solid var(--social-button-border-color) !important;
   border-radius: 20px !important;
   color: var(--login-body-text-color) !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   font-weight: 500 !important;
   font-size: 14px !important;
   line-height: 16px !important;
   text-decoration: none !important;
   cursor: pointer !important;
   transition: border-color 0.2s ease !important;
+}
+
+/* Display text from aria-label attribute */
+.pf-v5-c-login__main-footer-links-item a::after,
+#kc-social-providers a::after {
+  content: attr(aria-label) !important;
+  color: var(--login-body-text-color) !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
 }
 
 .pf-v5-c-login__main-footer-links-item a:hover,
@@ -281,6 +330,14 @@ span.icon-forefront {
   width: 16px;
 }
 
+/* ===== SOCIAL PROVIDER NAME TEXT ===== */
+.kc-social-provider-name {
+  color: var(--login-body-text-color) !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
 /* ===== ERROR/ALERT MESSAGES ===== */
 .pf-v5-c-alert {
   background-color: rgba(255, 255, 255, 0.1) !important;
@@ -308,7 +365,7 @@ span.icon-forefront {
 /* ===== CHECKBOX (Remember Me) ===== */
 .pf-v5-c-check__label {
   color: var(--login-text-secondary) !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   font-size: 12px !important;
 }
 
