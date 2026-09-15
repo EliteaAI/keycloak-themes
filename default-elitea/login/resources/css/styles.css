@@ -6,6 +6,9 @@
    to match the new Elitea design system.
    ============================================ */
 
+/* Import Montserrat font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 :root {
   /* Primary Button Colors */
   --keycloak-login-button-color: #6ae8fa;
@@ -54,7 +57,7 @@
 
 #kc-header-wrapper {
   text-indent: -9999px;
-  background-image: url(../img/keycloak-logo-text.png);
+  background-image: url(../img/keycloak-logo-text.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -131,6 +134,13 @@
   height: auto !important;
 }
 
+/* Remove PatternFly ::before pseudo-element borders */
+.pf-v5-c-form-control::before {
+  border: none !important;
+  border-color: transparent !important;
+  border-width: 0 !important;
+}
+
 /* The actual input element */
 .pf-v5-c-form-control > input,
 .pf-v5-c-form-control > input[type="text"],
@@ -175,12 +185,13 @@
   background-color: var(--keycloak-login-button-color) !important;
   color: var(--login-button-text-color) !important;
   border: none !important;
-  border-radius: 27px !important;
-  padding: 8px 10px !important;
+  border-radius: 20px !important;
+  padding: 8px 16px !important;
   font-family: "Montserrat", sans-serif !important;
   font-weight: 500 !important;
-  font-size: 12px !important;
+  font-size: 14px !important;
   line-height: 16px !important;
+  height: 40px !important;
   width: 100% !important;
   cursor: pointer !important;
   transition: background-color 0.2s ease !important;
